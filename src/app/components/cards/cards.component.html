@@ -12,8 +12,8 @@
             </div>
         </div>
         <div class="actions">
-            <button class="edit">Edit</button>
-            <button class="delete">Delete</button>
+            <a class=edit [routerLink]="['/products/edit/',id]">edit</a>
+            <button class="delete" (click)="deleteVideogame(id)">delete</button>
         </div>
     </div>
 </div>

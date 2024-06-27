@@ -37,4 +37,7 @@ export class VideogamesService {
   saveUrls(image: string[]): Observable<any> {
     return this.http.post<any>(this.apiUrl, { urls: image });
   }
+  deleteVideogames(id:string) {
+    return this.http.delete('http://localhost:3000/api/videogame/'+ id);
+  }
 }

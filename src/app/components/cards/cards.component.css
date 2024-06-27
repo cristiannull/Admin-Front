@@ -49,7 +49,7 @@
     font-size: 0.8rem;
     font-weight: bold;
 }
- .card-list .card .actions .edit {
+ .card-list  .actions .edit {
     background-color: rgb(254, 211, 102);
     color: rgb(232, 110, 22);
 }

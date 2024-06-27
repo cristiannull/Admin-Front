@@ -27,5 +27,6 @@ export class CategoriesService {
   getPegi() {
     return this.http.get('http://localhost:3000/api/pegis');
   }  
+  
 }
 

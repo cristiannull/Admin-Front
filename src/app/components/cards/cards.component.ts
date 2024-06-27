@@ -1,12 +1,12 @@
 import { Component, signal, Input, inject } from '@angular/core';
 
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterLinkWithHref } from '@angular/router';
 import { VideogamesService } from '../../service/videogames.service';
 
 @Component({
   selector: 'app-cards',
   standalone: true,
-  imports: [],
+  imports: [RouterLinkWithHref],
   templateUrl: './cards.component.html',
   styleUrl: './cards.component.css'
 })
@@ -17,6 +17,8 @@ export class CardsComponent {
   @Input() id: string = '';
   @Input() name: string = '';
   @Input() price: string = '';
+  @Input() edit: string = '';
+  @Input() delete: string = '';
   @Input() cover: string = '';
 
   ngOnInit() {
@@ -28,5 +30,10 @@ export class CardsComponent {
         this.videogames.set(videogames.data);
       },
     });
+  }
+  deleteVideogame(products_id:string){
+    if (confirm('seguro quieres eliminar')) {
+      this.videogamesService
+    }
   }
 }
