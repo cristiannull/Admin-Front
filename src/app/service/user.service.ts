@@ -23,4 +23,9 @@ export class UserService {
       return false;
     }
   }
+
+  removeToken() {
+    localStorage.removeItem('user_token');
+    return;
+  }
 }

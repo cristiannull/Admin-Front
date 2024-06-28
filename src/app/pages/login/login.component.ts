@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import {
   FormControl,
   FormGroup,
@@ -7,14 +7,14 @@ import {
 } from '@angular/forms';
 import { UserService } from '../../service/user.service';
 import { Router } from '@angular/router';
-
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, CommonModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: './login.component.css',
 })
 export class LoginComponent {
   private router = inject(Router);
@@ -29,6 +29,10 @@ export class LoginComponent {
     }),
   });
 
+  showPassword = signal(false);
+  errorMessage: string = '';
+  passwordVisibility = signal(false);
+
   onSubmit() {
     if (this.loginForm.valid) {
       console.log(this.loginForm.value);
@@ -38,11 +42,14 @@ export class LoginComponent {
           this.router.navigate(['/products']);
         },
         error: (error) => {
-          console.log(error);
+          this.errorMessage = 'Correo electrónico o contraseña incorrectos';
         },
       });
     } else {
-      console.log('Campos no validos');
+      this.errorMessage = 'Por favor, completa todos los campos requeridos';
     }
+  }
+  togglePasswordVisibility() {
+    this.showPassword.update((value) => !value);
   }
 }

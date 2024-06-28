@@ -1,13 +1,34 @@
 <div class="sidebar">
+
     <nav>
+
         <div>
-            <a href="" class="logo">Logo</a>
+            <a routerLink="/products" class="logo">Logo</a>
             <ul>
-                <li><a href="">Products</a></li>
-                <li><a href="">Categories</a></li>
-                <li><a href="">Orders</a></li>
+                <li>
+                    <a routerLink="/products">
+                        <span class="material-symbols-outlined">
+                            inventory_2
+                        </span>
+                        Products
+                    </a>
+                </li>
+                <li><a routerLink="/usuarios">Usuarios</a></li>
+                <li><a routerLink="/orders">Orders</a></li>
             </ul>
+            <div class="search">
+                <form (ngSubmit)="onSubmit()">
+                    <input type="text" id="search-bar" class="form-control" placeholder="Search Game" aria-label="Game"
+                        aria-describedby="button-addon2" [(ngModel)]="name" name="name" required>
+                    <button class="navbar-toggler pe-0" type="submit">
+                        <span class="button-icon search-button material-symbols-outlined">
+                            search
+                        </span>
+                    </button>
+                </form>
+            </div>
         </div>
-        <button class="checkout">Logout</button>
+
+        <button class="checkout" (click)="logout()">Logout</button>
     </nav>
 </div>

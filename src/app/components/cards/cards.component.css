@@ -1,83 +1,83 @@
- .card-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 1rem;
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
 }
- .card-list .card {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 2rem;
-    background-color: white;
-    border: 1px solid #eaeaea;
-    border-radius: 0.5rem;
-    padding: 1.5rem;
-    overflow: hidden;
+.card-list .card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  background-color: white;
+  border: 1px solid aqua;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  overflow: hidden;
 }
- .card-list .card img {
-    max-width: 5rem;
+.card-list .card img {
+  max-width: 5rem;
 }
- .card-list .card .properties {
-    display: flex;
-    gap: 3rem;
-    align-items: center;
+.card-list .card .properties {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
 }
 
 /* .card-list .card .properties .property {} */
- .card-list .card .properties .property .title {
-    text-transform: uppercase;
-    font-size: 0.7rem;
-    color: #999;
-    letter-spacing: 0.15rem;
+.card-list .card .properties .property .title {
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  color: #999;
+  letter-spacing: 0.15rem;
 }
- .card-list .card .properties .property h2 {
-    margin-top: 0.5rem;
-    font-size: 1.2rem;
-    height: 1.2rem;
-    text-overflow: ellipsis;
+.card-list .card .properties .property h2 {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  height: 1.2rem;
+  text-overflow: ellipsis;
 }
- .card-list .card .actions {
-    display: flex;
-    gap: 0.8rem;
-    margin-right: 1.5rem;
+.card-list .card .actions {
+  display: flex;
+  gap: 0.8rem;
+  margin-right: 1.5rem;
 }
- .card-list .card .actions>* {
-    padding: 0.8rem 1.8rem;
-    border: none;
-    border-radius: 0.3rem;
-    font-size: 0.8rem;
-    font-weight: bold;
+.card-list .card .actions > * {
+  padding: 0.8rem 1.8rem;
+  border: none;
+  border-radius: 0.3rem;
+  font-size: 0.8rem;
+  font-weight: bold;
 }
- .card-list  .actions .edit {
-    background-color: rgb(254, 211, 102);
-    color: rgb(232, 110, 22);
+.card-list .actions .edit {
+  background-color: rgb(254, 211, 102);
+  color: rgb(232, 110, 22);
 }
- .card-list .card .actions .delete {
-    background-color: rgb(254, 102, 102);
-    color: rgb(196, 0, 0);
+.card-list .card .actions .delete {
+  background-color: rgb(254, 102, 102);
+  color: rgb(196, 0, 0);
 }
 
 @media screen and (max-width: 1240px) {
- .card-list .card {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+  .card-list .card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 
- .card-list .card .properties {
-        width: 100%;
-        justify-content: space-between;
-    }
+  .card-list .card .properties {
+    width: 100%;
+    justify-content: space-between;
+  }
 
- .card-list .card img {
-        display: none
-    }
+  .card-list .card img {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 950px) {
- .card-list .card .properties {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 1rem;
-    }
+  .card-list .card .properties {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+  }
 }

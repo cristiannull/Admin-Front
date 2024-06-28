@@ -5,8 +5,8 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { Router } from '@angular/router';
-import { Videogame } from '../../../../models/videogame';
+import { Router, RouterLink } from '@angular/router';
+import { Videogame } from '../../models/videogame';
 import { NavComponent } from '../../components/nav/nav.component';
 import { VideogamesService } from '../../service/videogames.service';
 import { CategoriesService } from '../../service/categories.service';
@@ -14,14 +14,14 @@ import { CategoriesService } from '../../service/categories.service';
 @Component({
   selector: 'app-new-product',
   standalone: true,
-  imports: [ReactiveFormsModule, NavComponent],
+  imports: [ReactiveFormsModule, NavComponent, RouterLink],
   templateUrl: './new-product.component.html',
   styleUrl: './new-product.component.css',
 })
 export class NewProductComponent {
   private videogameService = inject(VideogamesService);
   private router = inject(Router);
-  private categoriesService = inject(CategoriesService)
+  private categoriesService = inject(CategoriesService);
 
   gamemodes = signal<any>([]);
   videogames = signal<any>([]);
@@ -36,7 +36,7 @@ export class NewProductComponent {
     price: new FormControl('', {
       validators: [],
     }),
-    image: new FormControl('') ,
+    image: new FormControl(''),
 
     cover: new FormControl('', {
       validators: [],
@@ -93,36 +93,21 @@ export class NewProductComponent {
   }
 
   onSubmit(event: Event) {
-  /*   const urlsInput = this.videogameForm.get('image')?.value;
-    if (urlsInput) {
-      const urlsArray = urlsInput.split(',').map(url => url.trim());
-      this.videogameService.saveUrls(urlsArray).subscribe({
+    if (this.videogameForm.valid) {
+      const copy = {
+        ...this.videogameForm.value,
+        image: this.videogameForm.value.image?.split(', '),
+      };
+
+      console.log('Podemos enviar la información');
+      this.videogameService.newVideogame(copy).subscribe({
         next: (response) => {
-          console.log('URLs saved successfully', response);
+          this.router.navigate(['/products']);
         },
         error: (error) => {
-          console.error('Error saving URLs', error);
-        }
+          console.log(error);
+        },
       });
-    } else {
-      console.error('Input is empty');
-    }
- */
-    if (this.videogameForm.valid) {
-      const copy = {...this.videogameForm.value, image: this.videogameForm.value.image?.split(", ")}
-      console.log(copy);
-      
-      console.log('Podemos enviar la información');
-      this.videogameService
-        .newVideogame(copy)
-        .subscribe({
-          next: (response) => {
-            this.router.navigate(['/products']);
-          },
-          error: (error) => {
-            console.log(error);
-          },
-        });
     } else {
       console.log('Campos no válidos');
     }

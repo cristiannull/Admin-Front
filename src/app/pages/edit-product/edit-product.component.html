@@ -1,62 +1,91 @@
 <div class="main-wrapper">
-    <div class="sidebar">
-        <nav>
-            <div>
-                <a href="" class="logo">Logo</a>
-                <ul>
-                    <li><a href="">Products</a></li>
-                    <li><a href="">Categories</a></li>
-                    <li><a href="">Orders</a></li>
-                </ul>
-            </div>
-            <button class="checkout">Logout</button>
-        </nav>
-    </div>
-    <main>
+    <app-nav />
+    <main class="bg-dark">
         <h1>Edit product</h1>
-        <form action="">
+        <form (ngSubmit)="onSubmit()" class="text-white">
             <div class="duo">
                 <div class="form-group">
-                    <label for="" value="Default value 1">Input 1</label>
-                    <input type="text" value="Default value 1">
+                    <label for="">Name :</label>
+                    <input type="text" [value]="videogame().name" name="name" required>
                 </div>
                 <div class="form-group">
-                    <label for="">Input 2</label>
-                    <input type="text" value="Default value 2">
+                    <label for="">Price :</label>
+                    <input type="text" [value]="videogame().price" name="price" required>
                 </div>
             </div>
             <div class="duo">
                 <div class="form-group">
-                    <label for="">Input 3</label>
-                    <input type="text" value="Default value 3">
+                    <label for="">Cover :</label>
+                    <input type="text" [value]="videogame().cover" name="cover" required>
                 </div>
                 <div class="form-group">
-                    <label for="">Input 4</label>
-                    <input type="text" value="Default value 4">
-                </div>
-            </div>
-            <div class="duo">
-                <div class="form-group">
-                    <label for="">Input 5</label>
-                    <input type="text" value="Default value 5">
-                </div>
-                <div class="form-group">
-                    <label for="">Input 6</label>
-                    <input type="text" value="Default value 6">
+                    <label for="">Images :</label>
+                    <input type="text" [value]="formattedUrls()" name="image" required>
                 </div>
             </div>
             <div class="duo">
                 <div class="form-group">
-                    <label for="">Input 7</label>
-                    <input type="text" value="Default value 7">
+                    <label for="exampleFormControlSelect1">Pegi :</label>
+                    <select class="form-control" class="form-control">
+                        @for(pegi of pegis(); track pegi._id ){
+                        <option [value]="pegi.name" [selected]="isSelected(pegi.name)">{{ pegi.name }}
+                        </option>
+                        }
+                    </select>
                 </div>
                 <div class="form-group">
-                    <label for="">Input 8</label>
-                    <input type="text" value="Default value 8">
+                    <label for="exampleFormControlSelect1">Developer :</label>
+                    <select class="form-control">
+                        @for(developer of developers(); track developer._id ){
+                        <option [value]="developer.name">{{ developer.name }}</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="duo">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Gender :</label>
+                    <select class="form-control">
+                        @for(gender of genders(); track gender._id ){
+                        <option [value]="gender.name">{{ gender.name }}</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Theme :</label>
+                    <select class="form-control">
+                        @for(theme of themes(); track theme._id ){
+                        <option [value]="theme.name">{{ theme.name }}</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="duo">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Game mode :</label>
+                    <select class="form-control">
+                        @for(gamemode of gamemodes(); track gamemode._id ){
+                        <option [value]="gamemode.name">{{ gamemode.name }}</option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Video Id :</label>
+                    <input type="text" [value]="videogame().videoId" name="videoId" required>
+                </div>
+            </div>
+            <div class="duo">
+                <div class="form-group">
+                    <label for="">Description :</label>
+                    <input type="text" [value]="videogame().description" name="description" required>
+                </div>
+                <div class="form-group">
+                    <label for="">System Requirements :</label>
+                    <input type="text" [value]="videogame().systemRequirements" name="systemRequirements" required>
                 </div>
             </div>
             <button type="button" class="cancel">Cancel</button>
-            <button type="submit">Create</button>
+            <button type="submit">Update</button>
         </form>
     </main>
 </div>

@@ -1,73 +1,78 @@
 .sidebar {
-    height: 100vh;
-    padding: 1rem;
-    position: relative;
+  height: 100vh;
+  min-width: 12%;
+  width: 13%;
+  padding: 1rem;
+  border-right: 1px solid aqua;
+  position: fixed;
 }
 
-.sidebar nav {
-    height: calc(100vh - 2rem);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.logo {
+  color: white;
+  cursor: pointer;
 }
 
 .sidebar nav .logo {
-    width: 100%;
-    display: inline-block;
-    margin-bottom: 1.5rem;
-    text-decoration: none;
-    font-size: 1.25rem;
-    font-weight: bold;
+  width: 100%;
+  display: inline-block;
+  margin-bottom: 1.5rem;
+  text-decoration: none;
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.sidebar nav {
+  height: calc(100vh - 2rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .sidebar nav ul {
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-    list-style: none;
+  gap: 0.5rem;
+  list-style: none;
+  padding-left: 0;
 }
 
 .sidebar nav ul a {
-    width: 100%;
-    display: inline-flex;
-    align-items: center;
-    position: relative;
-    text-decoration: none;
-    padding: 0.7rem 1rem;
-    border-radius: 0.2rem;
-    transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 5px;
+  border-radius: 0.2rem;
+  color: white;
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
 }
 
 .sidebar nav ul a:before {
-    content: "";
-    display: inline-block;
-    width: 1.2rem;
-    height: 1.2rem;
-    background-image: url("/grid.svg");
-    background-size: 100%;
-    margin-right: 0.4rem;
-    opacity: 0.4;
+  width: 1.2rem;
+  height: 1.2rem;
+  background-image: url("/grid.svg");
+  background-size: 100%;
+  margin-right: 0.4rem;
+  opacity: 0.4;
 }
 
 .sidebar nav ul a:hover {
-    color: rgb(0, 0, 69);
-    background-color: rgb(222, 222, 255);
+  color: rgb(0, 0, 69);
+  background-color: rgb(222, 222, 255);
 }
 
 .sidebar nav .checkout {
-    width: 100%;
-    display: inline-block;
-    text-decoration: none;
-    padding: 0.7rem 1rem;
-    border: none;
-    border-radius: 0.2rem;
-    background-color: rgb(255, 44, 44);
-    color: rgb(253, 213, 213);
-    cursor: pointer;
-    transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+  width: 100%;
+  display: inline-block;
+  text-decoration: none;
+  padding: 0.7rem 1rem;
+  border: none;
+  border-radius: 0.2rem;
+  background-color: rgb(255, 44, 44);
+  color: rgb(253, 213, 213);
+  cursor: pointer;
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
 }
 
 .sidebar nav .checkout:hover {
-    color: white;
-    background-color: red;
+  color: white;
+  background-color: red;
 }
