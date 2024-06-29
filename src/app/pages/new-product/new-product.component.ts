@@ -31,39 +31,39 @@ export class NewProductComponent {
 
   videogameForm = new FormGroup({
     name: new FormControl('', {
-      validators: [],
+      validators: [Validators.required],
     }),
     price: new FormControl('', {
-      validators: [],
+      validators: [Validators.required],
     }),
     image: new FormControl(''),
 
     cover: new FormControl('', {
-      validators: [],
+      validators: [Validators.required],
     }),
     gamemode: new FormControl('', {
-      validators: [],
+      validators: [Validators.required],
     }),
     developer: new FormControl('', {
-      validators: [],
+      validators: [Validators.required],
     }),
     gender: new FormControl('', {
-      validators: [],
+      validators: [Validators.required],
     }),
     pegi: new FormControl('', {
-      validators: [],
+      validators: [Validators.required],
     }),
     theme: new FormControl('', {
-      validators: [],
+      validators: [Validators.required],
     }),
     description: new FormControl('', {
-      validators: [],
+      validators: [Validators.required],
     }),
     systemRequirements: new FormControl('', {
-      validators: [],
+      validators: [Validators.required],
     }),
     videoId: new FormControl('', {
-      validators: [],
+      validators: [Validators.required],
     }),
   });
 

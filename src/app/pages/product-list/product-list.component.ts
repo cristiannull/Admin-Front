@@ -73,4 +73,21 @@ export class ProductListComponent {
   get pages() {
     return Array.from({ length: this.totalPages() }, (_, i) => i + 1);
   }
+
+  deleteVideogame(id: string): void {
+    this.videogamesService.deleteVideogame(id).subscribe({
+      next: () => {
+        // Este callback se ejecuta cuando la solicitud HTTP de eliminación es exitosa.
+        // Puedes poner aquí cualquier lógica que necesites ejecutar después de eliminar el videojuego.
+        // Por ejemplo, recargar la lista de videojuegos o navegar a otra ruta.
+        this.loadVideogames(); // Vuelve a cargar la lista de videojuegos
+        window.location.reload(); // Recarga la página actual
+      },
+      error: (error) => {
+        // Este callback se ejecuta si la solicitud HTTP de eliminación falla.
+        console.error('Error deleting videogame:', error);
+        // Aquí puedes manejar el error, por ejemplo, mostrar un mensaje al usuario.
+      },
+    });
+  }
 }
