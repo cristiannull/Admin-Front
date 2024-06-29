@@ -1,12 +1,13 @@
 .main-wrapper {
   display: grid;
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: 12% 1fr;
 }
 
 main {
   padding-left: 250px;
   background-color: #f5f6fa;
   padding: 1.5rem;
+  margin-top: 30px;
 }
 
 header a,
@@ -41,4 +42,11 @@ header a:hover {
   background-color: cyan;
   color: #222;
   border: cyan;
+}
+
+@media screen and (max-width: 950px) {
+  .main-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
 }

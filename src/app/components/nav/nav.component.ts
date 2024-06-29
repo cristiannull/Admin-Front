@@ -3,11 +3,14 @@ import { Router, RouterLink } from '@angular/router';
 import { UserService } from '../../service/user.service';
 import { VideogamesService } from '../../service/videogames.service';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { loginGuard } from '../../guards/login.guard';
+import { redirectIfLogged } from '../../guards/redirectIfLogged.guard';
 
 @Component({
   selector: 'app-nav',
   standalone: true,
-  imports: [RouterLink, FormsModule],
+  imports: [RouterLink, FormsModule, CommonModule],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css',
 })
@@ -43,5 +46,9 @@ export class NavComponent {
     } else {
       this.router.navigate(['/videogamelist']);
     }
+  }
+
+  isLogged() {
+    return this.userService.isLogged();
   }
 }
