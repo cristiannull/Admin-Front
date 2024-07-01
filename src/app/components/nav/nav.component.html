@@ -1,34 +1,48 @@
 <div class="sidebar">
-
     <nav>
+        <div class="wrapper">
+            <div class="logo"><a routerLink="/products">CRAD</a></div>
+            <input type="radio" name="slider" id="menu-btn">
+            <input type="radio" name="slider" id="close-btn">
 
-        <div>
-            <a routerLink="/products" class="logo">Logo</a>
-            <ul>
+            <ul class="nav-links">
+                <label for="close-btn" class="btn close-btn">
+                    <span class="button-icon material-symbols-outlined">
+                        close
+                    </span>
+                </label>
+                <li><a routerLink="/products">Products</a></li>
+                <li><a routerLink="/videogamelist">Users</a></li>
                 <li>
-                    <a routerLink="/products">
-                        <span class="material-symbols-outlined">
-                            inventory_2
-                        </span>
-                        Products
-                    </a>
+                    <a class="desktop-item">Categories </a>
+                    <input type="checkbox" id="showMega">
+                    <label for="showMega" class="mobile-item">Categories</label>
                 </li>
-                <li><a routerLink="/usuarios">Usuarios</a></li>
-                <li><a routerLink="/orders">Orders</a></li>
             </ul>
-            <div class="search">
-                <form (ngSubmit)="onSubmit()">
-                    <input type="text" id="search-bar" class="form-control" placeholder="Search Game" aria-label="Game"
-                        aria-describedby="button-addon2" [(ngModel)]="name" name="name" required>
-                    <button class="navbar-toggler pe-0" type="submit">
-                        <span class="button-icon search-button material-symbols-outlined">
-                            search
-                        </span>
-                    </button>
-                </form>
+
+            <div class=" container-button">
+                <div class="search">
+                    <form (ngSubmit)="onSubmit()">
+                        <input type="text" id="search-bar" class="form-control" placeholder="Search Game"
+                            aria-label="Game" aria-describedby="button-addon2" [(ngModel)]="name" name="name" required>
+                    </form>
+                </div>
+                <button (click)="logout()" class="button-icon navbar-toggler pe-0">
+                    <span *ngIf="isLogged()" class="material-symbols-outlined">
+                        logout
+                    </span>
+                </button>
+                <button class="button-icon navbar-toggler pe-0" type="button">
+                    <span *ngIf="!isLogged()" routerLink="/login" class="material-symbols-outlined">
+                        person
+                    </span>
+                </button>
+                <label for="menu-btn" class="btn menu-btn navbar-toggler pe-0">
+                    <span class="material-symbols-outlined">
+                        menu
+                    </span>
+                </label>
             </div>
         </div>
-
-        <button class="checkout" (click)="logout()">Logout</button>
     </nav>
 </div>

@@ -3,6 +3,7 @@
   flex-direction: column;
   gap: 1rem;
   margin-top: 1rem;
+  margin-left: 15px;
 }
 .card-list .card {
   display: flex;
@@ -67,10 +68,6 @@
   .card-list .card .properties {
     width: 100%;
     justify-content: space-between;
-  }
-
-  .card-list .card img {
-    display: none;
   }
 }
 

@@ -39,6 +39,13 @@ export class UserService {
     });
   }
 
+  adminlogin(formValues: any) {
+    return this.http.post('http://localhost:3000/api/admin/login', {
+      email: formValues.email,
+      password: formValues.password,
+    });
+  }
+
   isLogged() {
     if (localStorage.getItem('user_token')) {
       return true;

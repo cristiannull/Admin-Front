@@ -35,14 +35,18 @@ export class LoginComponent {
 
   onSubmit() {
     if (this.loginForm.valid) {
-      console.log(this.loginForm.value);
-      this.userService.login(this.loginForm.value).subscribe({
+      this.userService.adminlogin(this.loginForm.value).subscribe({
         next: (response: any) => {
           localStorage.setItem('user_token', response.token);
           this.router.navigate(['/products']);
         },
         error: (error) => {
-          this.errorMessage = 'Correo electrónico o contraseña incorrectos';
+          if (error.status === 403) {
+            this.errorMessage =
+              'No tienes acceso. Este usuario no es un administrador.';
+          } else if (error.status === 401) {
+            this.errorMessage = 'Correo electrónico o contraseña incorrectos';
+          }
         },
       });
     } else {
