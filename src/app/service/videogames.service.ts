@@ -49,9 +49,9 @@ export class VideogamesService {
     return this.http.get(endpoint);
   }
 
-  deleteVideogame(id: string): Observable<any> {
+ deleteVideogame(id: string): Observable<any> {
     return this.http.delete(`${this.apiUrl}/${id}`);
-  }
+  } 
 
   getVideogamesPages(page: number, limit: number) {
     return this.http.get<any>(`${this.apiUrl}?page=${page}&limit=${limit}`);
@@ -59,8 +59,5 @@ export class VideogamesService {
 
   saveUrls(image: string[]): Observable<any> {
     return this.http.post<any>(this.apiUrl, { urls: image });
-  }
-  deleteVideogames(id: string) {
-    return this.http.delete('http://localhost:3000/api/videogame/' + id);
   }
 }

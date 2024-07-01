@@ -1,0 +1,22 @@
+<div class="card-list bg-dark">
+    <div class="card bg-dark">
+        <div class="properties  text-light ">
+            <div class="property">
+                <span class="title">First Name</span>
+                <h2>{{firstname}}</h2>
+            </div>
+            <div class="property">
+                <span class="title">Last Name</span>
+                <h2>{{lastname}}</h2>
+            </div>
+            <div class="property">
+                <span class="title">Email</span>
+                <h2>{{email}}</h2>
+            </div>
+        </div>
+        <div class="actions">
+            <a class=edit [routerLink]="['/users/edit/',id]">edit</a>
+            <button class="delete" (click)="deleteUser(id)">delete</button>
+        </div>
+    </div>
+</div>

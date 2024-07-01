@@ -37,7 +37,7 @@ export class CardsComponent {
 
   deleteVideogame(id: string) {
     if (confirm('seguro quieres eliminar')) {
-      this.videogamesService.deleteVideogames(id).subscribe({
+      this.videogamesService.deleteVideogame(id).subscribe({
         next: () => {
           this.loadVideogames();
           window.location.reload();

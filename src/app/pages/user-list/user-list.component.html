@@ -1,0 +1,14 @@
+<div class="main-wrapper">
+    <app-nav />
+    <main class="bg-dark">
+        <header>
+            <ul class="d-flex justify-content-between align-items-center">
+                <li class="fs-2 user-select-none">Users</li>
+            </ul>
+        </header>
+        @if(users().length !== 0){
+        @for(user of users(); track user._id){ <app-cards-users [id]="user._id" [firstname]="user.firstname"
+            [lastname]="user.lastname" [email]="user.email"/>}
+        }
+    </main>
+</div>

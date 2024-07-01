@@ -7,6 +7,7 @@ import { User } from '../models/User.model';
 })
 export class UserService {
   private http = inject(HttpClient);
+  private apiUrl = 'http://localhost:3000/api/users';
 
   constructor() {}
 

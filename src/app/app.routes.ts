@@ -6,6 +6,8 @@ import { EditProductComponent } from './pages/edit-product/edit-product.componen
 import { NewProductComponent } from './pages/new-product/new-product.component';
 import { loginGuard } from './guards/login.guard';
 import { SearchComponent } from './pages/search/search.component';
+import { UserListComponent } from './pages/user-list/user-list.component';
+import { EditUserComponent } from './pages/edit-user/edit-user.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'products', pathMatch: 'full' },
@@ -30,5 +32,13 @@ export const routes: Routes = [
     path: 'search/:name',
     component: SearchComponent,
     canActivate: [loginGuard],
+  },
+  {
+    path: 'users',
+    component: UserListComponent,
+  },
+  {
+    path: 'users/edit/:id',
+    component: EditUserComponent,
   },
 ];
