@@ -10,7 +10,7 @@ import { SearchComponent } from './pages/search/search.component';
 export const routes: Routes = [
   { path: '', redirectTo: 'products', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
+  /* { path: 'register', component: RegisterComponent }, */
   {
     path: 'products',
     component: ProductListComponent,
@@ -29,5 +29,6 @@ export const routes: Routes = [
   {
     path: 'search/:name',
     component: SearchComponent,
+    canActivate: [loginGuard],
   },
 ];

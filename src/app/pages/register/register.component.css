@@ -1,54 +1,88 @@
-/* ====================
-- General styles
-==================== */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
 
 main {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f5f6fa;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  background: #242526;
+  font-family: "Poppins", sans-serif;
+}
+h2 {
+  text-align: center;
+}
+#register {
+  position: relative;
+  width: 700px;
+  max-height: 450px;
+  background: #00000070;
+  box-shadow: 0 0 50px #0ef;
+  border-radius: 20px;
+  padding: 40px;
+  padding-top: 15px;
+}
+#register:hover {
+  animation: animate 1s linear infinite;
+}
+@keyframes animate {
+  100% {
+    filter: hue-rotate(360deg);
+  }
+}
+#registerForm {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  transition: 1s ease-in-out;
+}
+#form-label {
+  position: relative;
+  margin: 30px 0;
+  border-bottom: 2px solid #fff;
 }
 
-form {
-    width: 600px;
-    background-color: white;
-    padding: 2rem;
+form .exampleInputEmail1,
+#exampleInputPassword1 {
+  height: 40px;
+  font-size: 16px;
+  color: #fff;
+  padding: 0 5px;
+  background: transparent;
+  outline: none;
+  justify-content: center;
+}
+.email input:focus ~ label,
+.email input:valid ~ label {
+  top: -5px;
 }
 
-form h1 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+form > button {
+  justify-content: center;
+  width: 100%;
+  padding: 10px;
+  background: #0ef;
+  box-shadow: 0 0 10px #0ef;
+  background-color: #7a7672;
+  font-size: 16px;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  margin-top: 15px;
+  transition: background-color 0.3s ease;
 }
 
-form .form-group {
-    margin-top: 1rem
+.PasswordVisibility {
+  color: white;
+  cursor: pointer;
+  user-select: none;
 }
 
-form .form-group label {
-    width: 100%;
-    display: block;
-    margin-bottom: 0.5rem;
-}
-
-form .form-group input {
-    width: 100%;
-    padding: 0.8rem;
-    font-size: 1rem
-}
-
-form button[type="submit"] {
-    margin-top: 1.5rem;
-    padding: 0.8rem 1.8rem;
-    border: none;
-    color: white;
-    background-color: rgb(48, 48, 255);
-    border-radius: 0.3rem;
-    font-size: 0.8rem;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-form button[type="submit"]:hover {
-    background-color: rgb(25, 25, 222);
+.error-message h2 {
+  font-size: 15px;
+  margin-top: 5px;
 }
