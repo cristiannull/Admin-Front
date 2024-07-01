@@ -40,16 +40,6 @@ export class ProductListComponent {
         this.videogames.set(videogames.data);
       },
     });
-    this.videogamesService.getVideogames().subscribe({
-      next: (response) => {
-        this.data = response;
-        this.isLoading = false;
-      },
-      error: (error) => {
-        console.error('Error loading data', error);
-        this.isLoading = false;
-      },
-    });
     this.loadVideogames();
   }
 
@@ -77,16 +67,11 @@ export class ProductListComponent {
   deleteVideogame(id: string): void {
     this.videogamesService.deleteVideogame(id).subscribe({
       next: () => {
-        // Este callback se ejecuta cuando la solicitud HTTP de eliminación es exitosa.
-        // Puedes poner aquí cualquier lógica que necesites ejecutar después de eliminar el videojuego.
-        // Por ejemplo, recargar la lista de videojuegos o navegar a otra ruta.
-        this.loadVideogames(); // Vuelve a cargar la lista de videojuegos
-        window.location.reload(); // Recarga la página actual
+        this.loadVideogames(); 
+        window.location.reload(); 
       },
       error: (error) => {
-        // Este callback se ejecuta si la solicitud HTTP de eliminación falla.
         console.error('Error deleting videogame:', error);
-        // Aquí puedes manejar el error, por ejemplo, mostrar un mensaje al usuario.
       },
     });
   }
