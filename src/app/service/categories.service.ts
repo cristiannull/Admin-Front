@@ -35,10 +35,6 @@ export class CategoriesService {
     return this.http.get<Category[]>(`${this.apiUrl}/typeoffers`);
   }
 
-  getTypeOffer() {
-    return this.http.get('http://localhost:3000/api/typeoffers');
-  }
-
   getGenderById(id: string) {
     return this.http.get('http://localhost:3000/api/gender/' + id);
   }
