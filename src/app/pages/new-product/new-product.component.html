@@ -76,7 +76,23 @@
         </div>
         <div class="form-group">
           <label for="">Developer:</label>
-          <input type="text" formControlName="developer" />
+          <select formControlName="developer" id="developer" class="form-control">
+            @for(developer of developers(); track developer._id ){
+            <option [value]="developer._id">{{
+              developer.name
+              }}</option>
+            }
+          </select>
+        </div>
+        <div>
+          <label for="">Type Offer:</label>
+          <select formControlName="typeoffer" id="developer" class="form-control">
+            @for(typeoffer of typeoffers(); track typeoffer._id ){
+            <option [value]="typeoffer._id">{{
+              typeoffer.name
+              }}</option>
+            }
+          </select>
         </div>
       </div>
       <button routerLink="/products" type="button" class="cancel">Cancel</button>

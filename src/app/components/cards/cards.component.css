@@ -62,7 +62,7 @@
 @media screen and (max-width: 1240px) {
   .card-list .card {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .card-list .card .properties {
@@ -73,8 +73,13 @@
 
 @media screen and (max-width: 950px) {
   .card-list .card .properties {
-    align-items: flex-start;
-    flex-direction: column;
     gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .card-list .card .actions,
+  .card-list .card .properties {
+    flex-direction: column;
   }
 }

@@ -1,15 +1,21 @@
 export interface Videogame {
-    _id: string;
-    name: string;
-    price: string;
-    image: string;
-    cover: string;
-    gamemode: string;
-    developer: string;
-    gender: string;
-    pegi: string;
-    theme: string;
-    description: string;
-    systemRequirements:string
-    videoId:string
-  }
+  _id: string;
+  name: string;
+  price: number;
+  cover: string;
+  image: string[];
+  gamemode: Category;
+  developer: Category;
+  gender: Category;
+  pegi: Category;
+  theme: Category;
+  description: string;
+  systemRequirements: string;
+  videoId: string;
+  typeoffer: Category;
+}
+
+export interface Category {
+  _id: string;
+  name: string;
+}

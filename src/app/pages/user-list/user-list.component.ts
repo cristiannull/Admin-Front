@@ -18,7 +18,7 @@ import { CommonModule } from '@angular/common';
     CommonModule,
   ],
   templateUrl: './user-list.component.html',
-  styleUrl: './user-list.component.css'
+  styleUrl: './user-list.component.css',
 })
 export class UserListComponent {
   private userService = inject(UserService);
@@ -29,7 +29,7 @@ export class UserListComponent {
   ngOnInit() {
     console.warn(
       '[ngOnInit] El componente lista de videojuegos ha sido inicializado'
-    );  
+    );
     this.userService.getUsers().subscribe({
       next: (users: any) => {
         this.users.set(users);
@@ -40,7 +40,7 @@ export class UserListComponent {
   deleteUser(id: string): void {
     this.userService.deleteUser(id).subscribe({
       next: () => {
-        window.location.reload(); 
+        window.location.reload();
       },
       error: (error) => {
         console.error('Error deleting videogame:', error);

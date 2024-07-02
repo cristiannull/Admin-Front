@@ -7,6 +7,7 @@ main {
   padding-left: 250px;
   background-color: #f5f6fa;
   padding: 1.5rem;
+  margin-top: 30px;
 }
 
 header a,
@@ -41,4 +42,36 @@ header a:hover {
   background-color: cyan;
   color: #222;
   border: cyan;
+}
+
+@media screen and (max-width: 950px) {
+  .main-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 1240px) {
+  .card-list .card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-list .card .properties {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .card-list .card .properties {
+    gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .card-list .card .actions,
+  .card-list .card .properties {
+    flex-direction: column;
+  }
 }
