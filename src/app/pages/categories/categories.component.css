@@ -1,0 +1,48 @@
+.main-wrapper {
+    display: grid;
+    grid-template-columns: 12% 1fr;
+  }
+
+.categories {
+    display: flex;
+    justify-content: space-between; 
+    flex-wrap: wrap;
+}
+
+main {
+    padding-left: 250px;
+    padding: 1.5rem;
+    margin-top: 30px;
+  }
+
+  a {
+    text-decoration: none;
+    list-style: none;
+    color: rgb(105, 100, 100);
+    font-size: 20px;
+  }
+
+.actions {
+    display: flex;
+    gap: 0.8rem;
+    margin-right: 1.5rem;
+    margin-bottom: 30px;
+  }
+
+.actions > * {
+    padding: 0.8rem 1.8rem;
+    border: none;
+    border-radius: 0.3rem;
+    font-size: 0.8rem;
+    font-weight: bold;
+  }
+
+  .edit {
+    background-color: rgb(254, 211, 102);
+    color: rgb(232, 110, 22);
+  }
+
+.delete {
+    background-color: rgb(254, 102, 102);
+    color: rgb(196, 0, 0);
+  }

@@ -1,0 +1,102 @@
+<div class="main-wrapper ">
+    <app-nav/>
+    <main>
+        <section class="categories">
+            <div class="text-white">
+               <h2>Genders :</h2>
+               <a  [routerLink]="'/gender/create/' ">Add Product
+                <span class="material-symbols-outlined">
+                    add
+                </span>
+            </a>
+                    @for(gender of genders(); track gender._id ){
+                        <h5>{{ gender.name }}</h5>
+                        <div class="actions">
+                            <a class=edit [routerLink]="['/gender/edit/',gender._id]">edit</a>
+                        <button class="delete" (click)="deleteGender(gender._id)">delete</button>
+                    </div>
+                    }
+                </div>
+      
+            <div class="text-white">
+                <h2>Pegis :</h2>
+                <a [routerLink]="'/pegi/create/' ">Add Product
+                    <span class="material-symbols-outlined">
+                        add
+                    </span>
+                </a>
+                    @for(pegi of pegis(); track pegi._id ){
+                        <h5>{{ pegi.name }}</h5>
+                        <div class="actions">
+                            <a class=edit [routerLink]="['/pegi/edit/',pegi._id]">edit</a>
+                        <button class="delete" (click)="deletePegi(pegi._id)">delete</button>
+                    </div>
+                    }
+                </div>
+      
+            <div class="text-white">
+                <h2>Game Modes :</h2>
+                <a [routerLink]="'/gamemode/create/' ">Add Product
+                    <span class="material-symbols-outlined">
+                        add
+                    </span>
+                </a>
+                    @for(gamemode of gamemodes(); track gamemode._id ){
+                        <h5>{{ gamemode.name }}</h5>
+                        <div class="actions">
+                            <a class=edit [routerLink]="['/gamemode/edit/',gamemode._id]">edit</a>
+                        <button class="delete" (click)="deleteGameMode(gamemode._id)">delete</button>
+                    </div>
+                    }
+                </div>
+       
+            <div class="text-white">
+                <h2>Themes :</h2>
+                <a [routerLink]="'/theme/create/' ">Add Product
+                    <span class="material-symbols-outlined">
+                        add
+                    </span>
+                </a>
+                    @for(theme of themes(); track theme._id ){
+                        <h5>{{ theme.name }}</h5>
+                        <div class="actions">
+                            <a class=edit [routerLink]="['/theme/edit/',theme._id]">edit</a>
+                        <button class="delete" (click)="deleteTheme(theme._id)">delete</button>
+                        </div>
+                    }
+                </div>
+
+                <div class="text-white">
+                    <h2>Type Offers :</h2>
+                    <a [routerLink]="'/typeoffer/create/' ">Add Product
+                        <span class="material-symbols-outlined">
+                            add
+                        </span>
+                    </a>
+                        @for(typeoffer of typeoffers(); track typeoffer._id ){
+                            <h5>{{ typeoffer.name }}</h5>
+                            <div class="actions">
+                                <a class=edit [routerLink]="['/typeoffer/edit/',typeoffer._id]">edit</a>
+                            <button class="delete" (click)="deleteTypeOffer(typeoffer._id)">delete</button>
+                            </div>
+                        }
+                    </div>
+
+                    <div class="text-white">
+                        <h2>Developers :</h2>
+                        <a [routerLink]="'/developer/create/' ">Add Product
+                            <span class="material-symbols-outlined">
+                                add
+                            </span>
+                        </a>
+                            @for(developer of developers(); track developer._id ){
+                                <h5>{{ developer.name }}</h5>
+                                <div class="actions">
+                                    <a class=edit [routerLink]="['/developer/edit/',developer._id]">edit</a>
+                                <button class="delete" (click)="deleteDeveloper(developer._id)">delete</button>
+                                </div>
+                            }
+                        </div>
+        </section>
+    </main>
+</div>
