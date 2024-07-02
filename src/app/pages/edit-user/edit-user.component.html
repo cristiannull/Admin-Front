@@ -2,38 +2,40 @@
     <app-nav />
     <main class="bg-dark">
         <h1>Edit product</h1>
-        <form (ngSubmit)="onSubmit()" class="text-white">
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="text-white">
             <div class="duo">
                 <div class="form-group">
                     <label for="">First Name :</label>
-                    <input type="text" [value]="user().firstname" name="firstname" required>
+                    <input formControlName="firstname" type="text" name="firstname" required>
                 </div>
                 <div class="form-group">
-                    <label for="">Last Name :</label>
-                    <input type="text" [value]="user().lastname" name="lastname" required>
+                    <label for="lastname">Last Name:</label>
+                    <input formControlName="lastname" id="lastname" type="text" name="lastname" required>
                 </div>
             </div>
             <div class="duo">
                 <div class="form-group">
                     <label for="">email :</label>
-                    <input type="text" [value]="user().email" name="email" required>
+                    <input formControlName="email" type="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="">age :</label>
+                    <input formControlName="age" type="number" name="age" required>
                 </div>
             </div>
             <div class="duo">
-                <div class="form-group">
-                    <label for="">age :</label>
-                    <input type="number" [value]="user().age" name="age" required>
-                </div>
+
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Rol :</label>
-                    <select class="form-control" class="form-control">
+                    <select formControlName="rol" id="rol" class="form-control" class="form-control">
                         @for(rol of roles(); track rol._id ){
-                        <option [value]="rol.name" [selected]="isSelected(rol.name)">{{ rol.name }}</option>
+                        <option [value]="rol._id" [selected]="rol._id === userForm.get('rol')?.value">{{ rol.name }}
+                        </option>
                         }
                     </select>
                 </div>
-                </div>
-            <button type="button" class="cancel">Cancel</button>
+            </div>
+            <button routerLink="/users" type="button" class="cancel">Cancel</button>
             <button type="submit">Update</button>
         </form>
     </main>

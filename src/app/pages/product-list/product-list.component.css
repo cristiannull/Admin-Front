@@ -50,3 +50,10 @@ header a:hover {
     flex-direction: column;
   }
 }
+
+@media screen and (max-width: 400px) {
+  header ul {
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -1,43 +1,47 @@
 <div class="main-wrapper">
     <app-nav />
-    <main class="bg-dark">
+    <main class="bg-dark text-white">
         <h1>Edit product</h1>
-        <form (ngSubmit)="onSubmit()" class="text-white">
+        <form [formGroup]="videogameForm" (ngSubmit)="onSubmit()">
             <div class="duo">
                 <div class="form-group">
                     <label for="">Name :</label>
-                    <input type="text" [value]="videogame().name" name="name" required>
+                    <input type="text" formControlName="name" name="name" required>
                 </div>
                 <div class="form-group">
                     <label for="">Price :</label>
-                    <input type="text" [value]="videogame().price" name="price" required>
+                    <input type="number" formControlName="price" name="price" required>
                 </div>
             </div>
             <div class="duo">
                 <div class="form-group">
+
                     <label for="">Cover :</label>
-                    <input type="text" [value]="videogame().cover" name="cover" required>
+                    <input type="text" formControlName="cover" name="cover" required>
                 </div>
                 <div class="form-group">
                     <label for="">Images :</label>
-                    <input type="text" [value]="formattedUrls()" name="image" required>
+                    <input type="text" formControlName="image" name="image" required>
                 </div>
             </div>
             <div class="duo">
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Pegi :</label>
-                    <select class="form-control" class="form-control">
-                        @for(pegi of pegis(); track pegi._id ){
-                        <option [value]="pegi.name" [selected]="isSelected(pegi.name)">{{ pegi.name }}
+                    <select formControlName="pegi" id="pegi" class="form-control">
+                        @for(pegi of pegis(); track pegi._id){
+                        <option [value]="pegi._id" [selected]="pegi._id === videogameForm.get('pegi')?.value">
+                            {{ pegi.name }}
                         </option>
                         }
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Developer :</label>
-                    <select class="form-control">
+                    <select formControlName="developer" id="developer" class="form-control">
                         @for(developer of developers(); track developer._id ){
-                        <option [value]="developer.name">{{ developer.name }}</option>
+                        <option [value]="developer._id"
+                            [selected]="developer._id === videogameForm.get('developer')?.value">{{ developer.name
+                            }}</option>
                         }
                     </select>
                 </div>
@@ -45,17 +49,20 @@
             <div class="duo">
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Gender :</label>
-                    <select class="form-control">
+                    <select formControlName="gender" id="gender" class="form-control">
                         @for(gender of genders(); track gender._id ){
-                        <option [value]="gender.name">{{ gender.name }}</option>
+                        <option [value]="gender._id" [selected]="gender._id === videogameForm.get('gender')?.value">{{
+                            gender.name }}
+                        </option>
                         }
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Theme :</label>
-                    <select class="form-control">
+                    <select formControlName="theme" class="form-control">
                         @for(theme of themes(); track theme._id ){
-                        <option [value]="theme.name">{{ theme.name }}</option>
+                        <option [value]="theme._id" [selected]="theme._id === videogameForm.get('theme')?.value">{{
+                            theme.name }}</option>
                         }
                     </select>
                 </div>
@@ -63,28 +70,44 @@
             <div class="duo">
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Game mode :</label>
-                    <select class="form-control">
+                    <select formControlName="gamemode" class="form-control">
                         @for(gamemode of gamemodes(); track gamemode._id ){
-                        <option [value]="gamemode.name">{{ gamemode.name }}</option>
+                        <option [value]="gamemode._id"
+                            [selected]="gamemode._id === videogameForm.get('gamemode')?.value">{{ gamemode.name }}
+                        </option>
                         }
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Video Id :</label>
-                    <input type="text" [value]="videogame().videoId" name="videoId" required>
+                    <input type="text" formControlName="videoId" id="videoId" required>
                 </div>
             </div>
             <div class="duo">
                 <div class="form-group">
                     <label for="">Description :</label>
-                    <input type="text" [value]="videogame().description" name="description" required>
+                    <textarea formControlName="description" id="description" rows="4" required></textarea>
                 </div>
                 <div class="form-group">
                     <label for="">System Requirements :</label>
-                    <input type="text" [value]="videogame().systemRequirements" name="systemRequirements" required>
+                    <textarea formControlName="systemRequirements" id="systemRequirements" rows="4" required></textarea>
                 </div>
             </div>
-            <button type="button" class="cancel">Cancel</button>
+            <div class="duo">
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Type Offer:</label>
+                    <select formControlName="typeoffer" id="typeOffer" class="form-control">
+                        @for(typeoffer of typeoffers(); track typeoffer._id ){
+                        <option [value]="typeoffer._id"
+                            [selected]="typeoffer._id === videogameForm.get('typeoffer')?.value">
+                            {{
+                            typeoffer.name
+                            }}</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <button routerLink="/products" type="button" class="cancel">Cancel</button>
             <button type="submit">Update</button>
         </form>
     </main>

@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { User } from '../models/User.model';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { User, Rol } from '../models/User.model';
 import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
@@ -21,20 +21,30 @@ export class UserService {
     });
   }
 
-  getUsers() {
-    return this.http.get('http://localhost:3000/api/users');
+  getUsers(): Observable<any> {
+    const token = localStorage.getItem('user_token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get<User[]>('http://localhost:3000/api/users', {
+      headers,
+    });
   }
 
-  getUserById(id: string) {
-    return this.http.get('http://localhost:3000/api/users/' + id);
+  getUserById(id: string): Observable<any> {
+    const token = localStorage.getItem('user_token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get<User[]>('http://localhost:3000/api/users/' + id, {
+      headers,
+    });
   }
 
-  getRol() {
-    return this.http.get('http://localhost:3000/api/rol');
+  getRol(): Observable<any> {
+    return this.http.get<Rol[]>('http://localhost:3000/api/rol');
   }
 
   editUser(id: string, data: any): Observable<any> {
-    return this.http.patch<any>(`${this.apiUrl}/${id}`, data);
+    const token = localStorage.getItem('user_token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.patch<any>(`${this.apiUrl}/${id}`, data, { headers });
   }
 
   deleteUser(id: string): Observable<any> {

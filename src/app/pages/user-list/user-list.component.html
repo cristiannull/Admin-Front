@@ -8,7 +8,7 @@
         </header>
         @if(users().length !== 0){
         @for(user of users(); track user._id){ <app-cards-users [id]="user._id" [firstname]="user.firstname"
-            [lastname]="user.lastname" [email]="user.email"/>}
+            [lastname]="user.lastname" [email]="user.email" />}
         }
     </main>
 </div>

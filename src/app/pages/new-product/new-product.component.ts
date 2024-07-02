@@ -28,6 +28,8 @@ export class NewProductComponent {
   genders = signal<any>([]);
   themes = signal<any>([]);
   pegis = signal<any>([]);
+  developers = signal<any>([]);
+  typeoffers = signal<any>([]);
 
   videogameForm = new FormGroup({
     name: new FormControl('', {
@@ -65,6 +67,7 @@ export class NewProductComponent {
     videoId: new FormControl('', {
       validators: [Validators.required],
     }),
+    typeoffer: new FormControl(''),
   });
 
   ngOnInit() {
@@ -90,13 +93,37 @@ export class NewProductComponent {
         this.pegis.set(pegis);
       },
     });
+    this.categoriesService.getDeveloper().subscribe({
+      next: (developers) => {
+        this.developers.set(developers);
+      },
+    });
+    this.categoriesService.getTypeOffer().subscribe({
+      next: (typeoffers) => {
+        this.typeoffers.set(typeoffers);
+      },
+    });
   }
 
   onSubmit(event: Event) {
     if (this.videogameForm.valid) {
-      const copy = {
-        ...this.videogameForm.value,
-        image: this.videogameForm.value.image?.split(', '),
+      const copy: Videogame = {
+        _id: '',
+        name: this.videogameForm.value.name || '',
+        price: parseFloat(this.videogameForm.value.price || '0'),
+        image: this.videogameForm.value.image
+          ? this.videogameForm.value.image.split(', ')
+          : [],
+        cover: this.videogameForm.value.cover || '',
+        gamemode: { _id: this.videogameForm.value.gamemode || '', name: '' },
+        developer: { _id: this.videogameForm.value.developer || '', name: '' },
+        gender: { _id: this.videogameForm.value.gender || '', name: '' },
+        pegi: { _id: this.videogameForm.value.pegi || '', name: '' },
+        theme: { _id: this.videogameForm.value.theme || '', name: '' },
+        description: this.videogameForm.value.description || '',
+        systemRequirements: this.videogameForm.value.systemRequirements || '',
+        videoId: this.videogameForm.value.videoId || '',
+        typeoffer: { _id: this.videogameForm.value.typeoffer || '', name: '' },
       };
 
       console.log('Podemos enviar la información');
@@ -105,7 +132,7 @@ export class NewProductComponent {
           this.router.navigate(['/products']);
         },
         error: (error) => {
-          console.log(error);
+          console.error('Error al agregar el videojuego:', error);
         },
       });
     } else {

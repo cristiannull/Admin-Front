@@ -5,6 +5,7 @@ import { VideogamesService } from '../../service/videogames.service';
 import { SkeletonModule } from 'primeng/skeleton';
 import { NavComponent } from '../../components/nav/nav.component';
 import { CommonModule } from '@angular/common';
+import { Videogame } from '../../models/videogame';
 
 @Component({
   selector: 'app-product-list',
@@ -35,11 +36,6 @@ export class ProductListComponent {
     console.warn(
       '[ngOnInit] El componente lista de videojuegos ha sido inicializado'
     );
-    this.videogamesService.getVideogames().subscribe({
-      next: (videogames: any) => {
-        this.videogames.set(videogames.data);
-      },
-    });
     this.loadVideogames();
   }
 
@@ -47,6 +43,10 @@ export class ProductListComponent {
     this.videogamesService
       .getVideogamesPages(this.currentPage(), this.pageSize)
       .subscribe((response) => {
+        const sortedVideogames = response.data.sort(
+          (a: Videogame, b: Videogame) => a.name.localeCompare(b.name)
+        );
+        this.videogames.set(sortedVideogames);
         this.videogames.set(response.data);
         this.totalItems.set(response.pagination.totalItems);
       });
@@ -67,8 +67,8 @@ export class ProductListComponent {
   deleteVideogame(id: string): void {
     this.videogamesService.deleteVideogame(id).subscribe({
       next: () => {
-        this.loadVideogames(); 
-        window.location.reload(); 
+        this.loadVideogames();
+        window.location.reload();
       },
       error: (error) => {
         console.error('Error deleting videogame:', error);

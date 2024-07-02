@@ -41,6 +41,7 @@ nav .wrapper {
   margin-bottom: 0;
   padding: 0;
   margin-left: 15%;
+  user-select: none;
 }
 
 .nav-links li {

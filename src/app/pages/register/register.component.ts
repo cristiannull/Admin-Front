@@ -51,15 +51,15 @@ export class RegisterComponent {
 
       console.log('Podemos enviar la información');
       const formValues = this.registerForm.value;
-      const user: User = {
+      /* const user: User = {
         firstname: formValues.firstname!,
         lastname: formValues.lastname!,
         email: formValues.email!,
         password: formValues.password!,
         age: Number(formValues.age),
-      };
+      } */
 
-      this.userService.register(user).subscribe({
+      /* this.userService.register(user).subscribe({
         next: (response: any) => {
           localStorage.setItem('user_token', response.token);
           this.router.navigate(['/home']);
@@ -70,7 +70,7 @@ export class RegisterComponent {
             error.error.message ||
             'Error inesperado. Por favor, intenta de nuevo más tarde.';
         },
-      });
+      }); */
     } else {
       this.errorMessage = 'Por favor, completa todos los campos requeridos.';
       console.log('Campos no válidos');

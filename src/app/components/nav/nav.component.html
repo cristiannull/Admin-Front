@@ -4,7 +4,6 @@
             <div class="logo"><a routerLink="/products">CRAD</a></div>
             <input type="radio" name="slider" id="menu-btn">
             <input type="radio" name="slider" id="close-btn">
-
             <ul class="nav-links">
                 <label for="close-btn" class="btn close-btn">
                     <span class="button-icon material-symbols-outlined">
@@ -12,21 +11,20 @@
                     </span>
                 </label>
                 <li><a routerLink="/products">Products</a></li>
-                <li><a routerLink="/videogamelist">Users</a></li>
+                <li><a routerLink="/users">Users</a></li>
                 <li>
-                    <a class="desktop-item">Categories </a>
-                    <input type="checkbox" id="showMega">
-                    <label for="showMega" class="mobile-item">Categories</label>
+                    <a routerLink="/categories">Categories </a>
                 </li>
-            </ul>
-
-            <div class=" container-button">
                 <div class="search">
                     <form (ngSubmit)="onSubmit()">
                         <input type="text" id="search-bar" class="form-control" placeholder="Search Game"
                             aria-label="Game" aria-describedby="button-addon2" [(ngModel)]="name" name="name" required>
                     </form>
                 </div>
+            </ul>
+
+            <div class=" container-button">
+
                 <button (click)="logout()" class="button-icon navbar-toggler pe-0">
                     <span *ngIf="isLogged()" class="material-symbols-outlined">
                         logout
