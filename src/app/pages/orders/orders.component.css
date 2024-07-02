@@ -1,0 +1,66 @@
+.main-wrapper {
+  display: grid;
+  grid-template-columns: 12% 1fr;
+}
+
+main {
+  padding: 1.5rem;
+}
+
+.tablep {
+  margin: 0 auto;
+  margin-top: 100px;
+  border: white;
+  width: 80%;
+  border-collapse: collapse;
+}
+
+.tablep thead {
+  background-color: darkgray;
+}
+
+.tablep th,
+.tablep td {
+  padding: 8px;
+  text-align: left;
+  border: 1px solid darkgray;
+}
+
+@media (max-width: 768px) {
+  .tablep thead {
+    display: none;
+  }
+
+  .tablep,
+  .tablep tbody,
+  .tablep tr,
+  .tablep td {
+    display: block;
+    width: 100%;
+  }
+
+  .tablep tr {
+    margin-bottom: 15px;
+    border: 1px solid darkgray;
+    padding: 10px;
+    background-color: darkgray;
+  }
+
+  .tablep td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 10px;
+    width: calc(50% - 20px);
+    text-align: left;
+    font-weight: bold;
+  }
+}
+
+.tablep td ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+.tablep td ul li {
+  margin-bottom: 5px;
+}

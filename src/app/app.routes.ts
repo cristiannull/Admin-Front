@@ -20,6 +20,7 @@ import { EditThemeComponent } from './pages/edit-theme/edit-theme.component';
 import { EditTypeofferComponent } from './pages/edit-typeoffer/edit-typeoffer.component';
 import { NewDeveloperComponent } from './pages/new-developer/new-developer.component';
 import { EditDeveloperComponent } from './pages/edit-developer/edit-developer.component';
+import { OrdersComponent } from './pages/orders/orders.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'products', pathMatch: 'full' },
@@ -109,5 +110,9 @@ export const routes: Routes = [
   {
     path: 'developer/edit/:id',
     component: EditDeveloperComponent,
+  },
+  {
+    path: 'orders',
+    component: OrdersComponent,
   },
 ];

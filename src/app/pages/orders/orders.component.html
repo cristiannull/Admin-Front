@@ -1,0 +1,32 @@
+<div class="main-wrapper">
+    <app-nav />
+    <main>
+        <table class="tablep text-white">
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Order ID</th>
+                    <th>Paymenth Merthod</th>
+                    <th>Items</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let order of orders()">
+                    <td>{{ order.user.firstname }} {{ order.user.lastname }}</td>
+                    <td>{{ order._id }}</td>
+                    <td>{{order.paymentMethod.name}}</td>
+                    <td>
+                        <ul>
+                            <li *ngFor="let item of order.videogames">
+                                {{ item.videogameId.name }} - {{ item.quantity }} x {{ item.videogameId.price | currency
+                                }}
+                            </li>
+                        </ul>
+                    </td>
+                    <td>{{ order.total | currency }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+</div>

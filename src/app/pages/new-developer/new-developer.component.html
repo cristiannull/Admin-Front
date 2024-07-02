@@ -1,16 +1,16 @@
 <div class="main-wrapper">
-    <app-nav />
-    <main class="bg-dark text-white">
-      <h1>New Developer:</h1>
-      <form [formGroup]="developerForm" (submit)="onSubmit()">
-          <div class="form-group">
-            <label for="">Developer:</label>
-            <input type="text" formControlName="name" />
-          </div>
-          <div class="duo">
+  <app-nav />
+  <main class="bg-dark text-white">
+    <h1>New Developer:</h1>
+    <form [formGroup]="developerForm" (submit)="onSubmit()">
+      <div class="form-group">
+        <label for="">Developer:</label>
+        <input type="text" formControlName="name" />
+      </div>
+      <div class="duo">
         <button routerLink="/categories" type="button" class="cancel">Cancel</button>
         <button type="submit">Create</button>
-        </div>
-      </form>
-    </main>
-  </div>
+      </div>
+    </form>
+  </main>
+</div>

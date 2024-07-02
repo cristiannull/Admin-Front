@@ -1,16 +1,16 @@
 <div class="main-wrapper">
-    <app-nav />
-    <main class="bg-dark text-white">
-      <h1>Edit Pegi:</h1>
-      <form [formGroup]="pegiForm" (ngSubmit)="onSubmit()" class="text-white">
-          <div class="form-group">
-            <label for="name">Pegi:</label>
-            <input type="text" [value]="pegi().name"  formControlName="name" required />
-          </div>
-          <div class="duo">
+  <app-nav />
+  <main class="bg-dark text-white">
+    <h1>Edit Pegi:</h1>
+    <form [formGroup]="pegiForm" (ngSubmit)="onSubmit()" class="text-white">
+      <div class="form-group">
+        <label for="name">Pegi:</label>
+        <input type="text" [value]="pegi().name" formControlName="name" required />
+      </div>
+      <div class="duo">
         <button routerLink="/categories" type="button" class="cancel">Cancel</button>
         <button type="submit" [disabled]="!pegiForm.valid">Update</button>
-        </div>
-      </form>
-    </main>
-  </div>
+      </div>
+    </form>
+  </main>
+</div>
