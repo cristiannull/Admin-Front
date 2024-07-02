@@ -48,7 +48,9 @@ export class UserService {
   }
 
   deleteUser(id: string): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/${id}`);
+    const token = localStorage.getItem('user_token');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.delete(`${this.apiUrl}/${id}`, { headers });
   }
 
   login(formValues: any) {
