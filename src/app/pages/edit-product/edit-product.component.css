@@ -90,6 +90,10 @@ main form {
   margin-top: 1rem;
 }
 
+h1{
+  margin-left: 5%;
+}
+
 main form .duo {
   width: 100%;
   display: grid;
@@ -144,29 +148,21 @@ main form button[type="submit"]:hover {
 }
 
 textarea {
-  /* Cambiar el tamaño del textarea */
   width: 100%;
-  height: 150px; /* Altura deseada */
-
-  /* Ajustes de fuente y texto */
+  height: 150px; 
   font-family: Arial, sans-serif;
   font-size: 14px;
   line-height: 1.5;
-
-  /* Ajustes de espaciado y bordes */
-  padding: 10px; /* Espaciado interior */
-  border: 1px solid #ccc; /* Borde */
-  border-radius: 4px; /* Bordes redondeados */
-
-  /* Otros ajustes de apariencia */
-  resize: vertical; /* Permitir redimensionamiento vertical */
-  box-sizing: border-box; /* Incluir padding y border en el tamaño total */
+  padding: 10px; 
+  border: 1px solid #ccc; 
+  border-radius: 4px; 
+  resize: vertical; 
+  box-sizing: border-box;
 }
 
 textarea:focus {
-  /* Estilo cuando el textarea está enfocado */
-  border-color: #007bff; /* Cambiar color de borde */
-  outline: none; /* Eliminar el outline predeterminado */
+  border-color: #007bff; 
+  outline: none; 
 }
 
 @media screen and (max-width: 950px) {
